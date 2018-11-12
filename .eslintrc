@@ -6,8 +6,9 @@
     "es6": true
   },
   "rules": {
-    "no-undef": "off",
     "no-console": "off",
-    "indent": [2, 2]
+    "indent": [2, 2],
+    "no-trailing-spaces": "error",
+    "semi": "error"
   }
 }
