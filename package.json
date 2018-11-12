@@ -1,0 +1,14 @@
+{
+  "name": "thorin",
+  "version": "0.0.1",
+  "description": "This repository contains implementations of a few algorithms and data structures",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anirudhbs/thorin.git"
+  },
+  "author": "anirudhbs",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^5.9.0"
+  }
+}
