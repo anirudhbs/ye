@@ -1,8 +1,7 @@
 {
   "name": "thorin",
   "version": "0.0.1",
-  "description": "This repository contains implementations of a few algorithms and data structures",
-  "repository": {
+    "repository": {
     "type": "git",
     "url": "git+https://github.com/anirudhbs/thorin.git"
   },
