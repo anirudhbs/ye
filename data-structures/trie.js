@@ -1,43 +1,55 @@
-// eslint-disable-next-line no-undef
 class Node {
-  constructor (key) {
-    this.key = key;
-    this.children = {};
+  constructor () {
+    this.keys = new Map();
     this.end = false;
+  }
+
+  setEnd () {
+    this.end = true;
   }
 }
 
 class Trie {
   constructor () {
-    this.root = new Node(null);
+    this.root = new Node();
   }
 
-  insert(word, node = this.root) {
-    for(let i = 0; i < word.length; i += 1) {
-      if (!(word[i] in node.children)) {
-        node.children[word[i]] = new Node(word[i]);
-        node.children[word[i]].parent = node;
-      }
-      node = node.children[word[i]];
-
-      if(i === word.length - 1) {
-        node.end = true;
-      }
+  insert (input, node = this.root) {
+    if(input.length === 0) { // no more letters
+      node.setEnd();
+      return;
     }
+    if(!node.keys.has(input[0])) { // letter not present
+      node.keys.set(input[0], new Node());
+    }
+    return this.insert(input.slice(1), node.keys.get(input[0])); // letter is present, move on to the next letter in the input
   }
 
-  contains(word, node = this.root) {
-    for (let i = 0; i < word.length; i += 1) {
-      if (word[i] in node.children) {
-        node = node.children[word[i]];
-      } else {
-        return false;
-      }
+  isPresent (input, node = this.root) {
+    if(input.length === 0) {
+      return node.end; // if input is empty, returns true if end of trie
     }
-    return node.end;
+    if(!node.keys.has(input[0])) { // if letter not present, returns false
+      return false;
+    }
+    return this.isPresent(input.slice(1), node.keys.get(input[0])); // check recursively
+  }
+
+  words (node = this.root, words = [], str = '') {
+    if(node.end) { // end of tree
+      words.push(str);
+    }
+    for (let letter of node.keys.keys()) { // call recursively for each node
+      this.words(node.keys.get(letter), words, str + letter);
+    }
+    return words;
   }
 }
 
-const t = new Trie;
-t.insert('thorin');
-console.log(t.contains('thorin'));
+const t = new Trie();
+t.insert('migos');
+t.insert('quavo');
+t.insert('meetup');
+t.insert('monitor');
+console.log(t.words());
+console.log(t.isPresent('quavo'));
