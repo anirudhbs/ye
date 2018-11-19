@@ -15,7 +15,7 @@ class Trie {
   }
 
   insert (input, node = this.root) {
-    if(input.length === 0) { // no more letters
+    if(input === '') { // no more letters
       node.setEnd();
       return;
     }
@@ -26,7 +26,7 @@ class Trie {
   }
 
   isPresent (input, node = this.root) {
-    if(input.length === 0) {
+    if(input === '') {
       return node.end; // if input is empty, returns true if end of trie
     }
     if(!node.keys.has(input[0])) { // if letter not present, returns false
@@ -44,6 +44,20 @@ class Trie {
     }
     return words;
   }
+
+  goTo(input, node = this.root) {
+    if(input === '') {
+      return node;
+    }
+    const firstLetterNode = node.keys.get(input[0]);
+    return firstLetterNode ? this.goTo(input.slice(1), firstLetterNode) : {};
+  }
+
+  autoComplete(input) {
+    const where = this.goTo(input);
+    const arr = this.words(where);
+    return arr.map(cur => input + cur);
+  }
 }
 
 const t = new Trie();
@@ -51,5 +65,6 @@ t.insert('migos');
 t.insert('quavo');
 t.insert('meetup');
 t.insert('monitor');
+t.insert('mitch');
 console.log(t.words());
-console.log(t.isPresent('quavo'));
+console.log(t.autoComplete('mi'));
