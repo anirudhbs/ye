@@ -7,6 +7,6 @@ function linearSearch(arr, value) {
   return -1;
 }
 
-const where = linearSearch([1, 2, 3, 'x', 12, 98], 12);
+const where = linearSearch([1, 2, 3, "x", 12, 98], 12);
 // eslint-disable-next-line no-undef
 console.log(where);

@@ -1,5 +1,5 @@
 function towerOfHanoi(numberOfDisks, fromRod, toRod, intermediateRod) {
-  if(numberOfDisks === 1) {
+  if (numberOfDisks === 1) {
     // eslint-disable-next-line no-undef
     console.log(`move disk 1 from ${fromRod} to ${toRod}`);
     return;
@@ -10,4 +10,4 @@ function towerOfHanoi(numberOfDisks, fromRod, toRod, intermediateRod) {
   towerOfHanoi(numberOfDisks - 1, intermediateRod, toRod, fromRod);
 }
 
-towerOfHanoi(4, 'a', 'c', 'b'); // number of disks, initial rod, desitnation rod, the third rod
+towerOfHanoi(4, "a", "c", "b"); // number of disks, initial rod, desitnation rod, the third rod

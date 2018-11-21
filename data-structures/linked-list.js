@@ -1,19 +1,21 @@
 class Node {
-  constructor(value)  {
+  constructor(value) {
     this.value = value;
     this.next = null;
   }
 }
 
-class LinkedList { // an implementation of a singly linked list
-  constructor () {
+class LinkedList {
+  // an implementation of a singly linked list
+  constructor() {
     this.head = null;
     this.size = 0;
   }
 
-  add(value) { // add to end of list
+  add(value) {
+    // add to end of list
     const node = new Node(value);
-    if(this.head === null) {
+    if (this.head === null) {
       this.head = node;
     } else {
       let current = this.head;
@@ -30,7 +32,7 @@ class LinkedList { // an implementation of a singly linked list
       return false;
     }
     const node = new Node(value);
-    if(index === 0) {
+    if (index === 0) {
       node.next = this.head;
       this.head = node;
     } else {
@@ -47,15 +49,16 @@ class LinkedList { // an implementation of a singly linked list
   }
 
   remove(value) {
-    if(this.size === 0) {
+    if (this.size === 0) {
       return false;
     }
-    if (value === this.head.value) { // first element in the list
+    if (value === this.head.value) {
+      // first element in the list
       this.head = this.head.next;
     } else {
       let previous = this.head;
       let where = previous.next;
-      while(where.next !== null) {
+      while (where.next !== null) {
         if (where.value === value) {
           previous.next = where.next;
         }
@@ -67,16 +70,17 @@ class LinkedList { // an implementation of a singly linked list
   }
 
   removeFrom(index) {
-    if(index < 0 || this.size < index) {
+    if (index < 0 || this.size < index) {
       return false;
     }
-    if (index === 0) { // first element in the list
+    if (index === 0) {
+      // first element in the list
       this.head = this.head.next;
     }
     let prev = this.head;
     let where = prev.next;
     let i = 0;
-    while(i < index - 1) {
+    while (i < index - 1) {
       prev = where;
       where = where.next;
       i += 1;
@@ -86,12 +90,12 @@ class LinkedList { // an implementation of a singly linked list
   }
 
   indexOf(value) {
-    if(this.size === 0) {
+    if (this.size === 0) {
       return false;
     }
     let where = this.head;
     let index = 0;
-    while(where.next !== null) {
+    while (where.next !== null) {
       if (where.value === value) {
         return index;
       }
@@ -101,13 +105,14 @@ class LinkedList { // an implementation of a singly linked list
     return -1;
   }
 
-  items() { // return node values in an array format
-    if(this.size === 0) {
+  items() {
+    // return node values in an array format
+    if (this.size === 0) {
       return [];
     }
     let node = this.head;
     let arr = [];
-    while(node.next !== null) {
+    while (node.next !== null) {
       arr.push(node.value);
       node = node.next;
     }
@@ -122,7 +127,7 @@ n1.insertAt(0, 3);
 n1.insertAt(12, 8);
 n1.insertAt(2, 32);
 n1.add(-1);
-n1.add('x');
+n1.add("x");
 n1.add(0);
 n1.add(54);
 n1.insertAt(2, 21);

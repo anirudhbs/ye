@@ -3,11 +3,10 @@ function binarySearch(arr, value) {
   let low = 0;
   let high = arr.length - 1;
   while (low <= high) {
-    let mid = Math.floor((low + high)/ 2);
+    let mid = Math.floor((low + high) / 2);
     if (arr[mid] === value) {
       return mid;
-    }
-    else {
+    } else {
       if (value < arr[mid]) {
         high = mid - 1;
       } else {

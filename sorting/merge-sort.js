@@ -1,4 +1,4 @@
-function merge (leftArr, rightArr) {
+function merge(leftArr, rightArr) {
   const sorted = [];
 
   while (leftArr.length !== 0 && rightArr.length !== 0) {
@@ -13,7 +13,7 @@ function merge (leftArr, rightArr) {
   return [...sorted, ...leftArr, ...rightArr];
 }
 
-function mergeSort (arr) {
+function mergeSort(arr) {
   if (arr.length === 1) {
     return arr;
   } else {
