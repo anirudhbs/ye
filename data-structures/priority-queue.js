@@ -1,55 +1,52 @@
 class Node {
-  constructor (value, priority) {
+  constructor(value, priority = 0) {
     this.value = value;
     this.priority = priority;
+    this.next = null;
   }
 }
 
 class PriorityQueue {
   constructor() {
-    this.items = [];
+    this.first = null;
   }
 
-  add(value, priority) {
-    const item = new Node(value, priority);
-    if(this.items.length === 0) { // queue is empty
-      this.items.push(item);
-      return;
-    }
-    for(let i = 0; i < this.items.length; i += 1) { // add somewhere in the middle
-      const where = this.items[i];
-      if (where.priority < item.priority) {
-        this.items.splice(i, 0, item);
-        return;
+  insert(value, priority = 0) {
+    const node = new Node(value, priority);
+    if (!this.first || this.first.priority < node.priority) {
+      node.next = this.first;
+      this.first = node;
+    } else {
+      let pointer = this.first;
+      while (pointer.next && node.priority < pointer.next.priority) {
+        pointer = pointer.next;
       }
+      node.next = pointer.next;
+      pointer.next = node;
     }
-    this.items.push(item); // add to end of queue
   }
 
   remove() {
-    return this.items.shift();
-  }
-  head() {
-    return this.items[0];
+    this.first = this.first.next;
+    return this.first;
   }
 
-  isEmpty() {
-    return (this.items.length === 0) ? true : false;
-  }
-
-  printQueue() {
-    this.items.forEach((cur, index) => {
-      const { value, priority } = cur;
-      // eslint-disable-next-line no-undef
-      console.log(`index: ${index}, value: ${value}, priority: ${priority}`);
-    });
+  printQueue(node = this.first) {
+    if (node === null) {
+      return;
+    }
+    console.log(`priority: ${node.priority}, value: ${node.value}`);
+    this.printQueue(node.next);
   }
 }
 
 const pq = new PriorityQueue();
-pq.add(14, 1);
-pq.add('y', 12);
-pq.add(3, 22);
-pq.add('x', 3);
+pq.insert(14, 1);
+pq.insert(3, 22);
+pq.insert("y", 12);
+pq.insert("x", 3);
+pq.insert("mars", 300);
+pq.printQueue();
 pq.remove();
+console.log("\n");
 pq.printQueue();
