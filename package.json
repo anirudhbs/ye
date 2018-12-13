@@ -1,9 +1,9 @@
 {
-  "name": "thorin",
+  "name": "ye",
   "version": "0.0.1",
-    "repository": {
+  "repository": {
     "type": "git",
-    "url": "git+https://github.com/anirudhbs/thorin.git"
+    "url": "git+https://github.com/anirudhbs/ye.git"
   },
   "author": "anirudhbs",
   "license": "MIT",

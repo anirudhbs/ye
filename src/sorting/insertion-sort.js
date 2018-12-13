@@ -14,5 +14,4 @@ function insertionSort(arr) {
   return arr;
 }
 
-// eslint-disable-next-line no-undef
 console.log(insertionSort([5, -1, 23, 0, 90]));

@@ -134,8 +134,6 @@ n1.insertAt(2, 21);
 n1.add(12);
 n1.insertAt(3, 4);
 n1.remove(54);
-// eslint-disable-next-line no-undef
 console.log(n1.items());
 n1.removeFrom(300);
-// eslint-disable-next-line no-undef
 console.log(n1.items());

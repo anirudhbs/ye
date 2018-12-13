@@ -13,5 +13,4 @@ function bubbleSort(arr) {
   return arr;
 }
 
-// eslint-disable-next-line no-undef
 console.log(bubbleSort([4, 3, 33, 12, 0 - 111]));

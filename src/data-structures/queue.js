@@ -27,8 +27,6 @@ class Queue {
 const q = new Queue();
 q.add("hello");
 q.add("there");
-// eslint-disable-next-line no-undef
 console.log(q.items);
 q.remove();
-// eslint-disable-next-line no-undef
 console.log(q.items);

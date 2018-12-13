@@ -8,5 +8,4 @@ function linearSearch(arr, value) {
 }
 
 const where = linearSearch([1, 2, 3, "x", 12, 98], 12);
-// eslint-disable-next-line no-undef
 console.log(where);

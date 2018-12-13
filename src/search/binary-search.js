@@ -18,5 +18,4 @@ function binarySearch(arr, value) {
 }
 
 const where = binarySearch([1, 2, 3, 4, 5, 6, 7, 8, 9], 4);
-// eslint-disable-next-line no-undef
 console.log(where);

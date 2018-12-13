@@ -29,11 +29,9 @@ class Stack {
 }
 
 const s = new Stack();
-s.push('hello');
-// eslint-disable-next-line no-undef
+s.push("hello");
 console.log(s.items);
 s.push(Infinity);
-s.push('beyond');
+s.push("beyond");
 s.pop();
-// eslint-disable-next-line no-undef
 console.log(s.items);
