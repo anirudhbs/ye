@@ -1,21 +1,17 @@
 // works only for sorted arrays
-function binarySearch(arr, value) {
-  let low = 0;
-  let high = arr.length - 1;
-  while (low <= high) {
-    let mid = Math.floor((low + high) / 2);
-    if (arr[mid] === value) {
-      return mid;
-    } else {
-      if (value < arr[mid]) {
-        high = mid - 1;
-      } else {
-        low = mid + 1;
-      }
-    }
+function binarySearch(arr, value, low = 0, high = arr.length - 1) {
+  const mid = Math.floor((high - low) / 2 + low);
+  switch (true) {
+  case arr[mid] === value:
+    return mid;
+  case high - low === 0:
+    return false;
+  case value < arr[mid]:
+    return binarySearch(arr, value, low, mid);
+  case value > arr[mid]:
+    return binarySearch(arr, value, mid + 1, high);
   }
-  return -1;
 }
 
-const where = binarySearch([1, 2, 3, 4, 5, 6, 7, 8, 9], 4);
+const where = binarySearch([1, 2, 3, 4, 5, 6, 7, 1221, 1222], 1221);
 console.log(where);
