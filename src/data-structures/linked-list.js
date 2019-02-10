@@ -119,6 +119,34 @@ class LinkedList {
     arr.push(node.value); // push the last node
     return arr;
   }
+
+  reverse() {
+    let current = this.head,
+      next = null,
+      prev = null;
+
+    while (current !== null) {
+      next = current.next;
+      current.next = prev;
+
+      prev = current;
+      current = next;
+    }
+    this.head = prev;
+    return true;
+  }
+
+  nthElementFromLast(n) {
+    if (n > this.size) {
+      return false;
+    }
+
+    let node = this.head;
+    for (let i = 0; i < this.size - n; i += 1) {
+      node = node.next;
+    }
+    return node.value;
+  }
 }
 
 const n1 = new LinkedList();
@@ -137,3 +165,6 @@ n1.remove(54);
 console.log(n1.items());
 n1.removeFrom(300);
 console.log(n1.items());
+n1.reverse();
+console.log(n1.items());
+console.log(n1.nthElementFromLast(4));
