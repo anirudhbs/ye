@@ -1,6 +1,9 @@
 {
   "name": "ye",
   "version": "0.0.1",
+  "scripts": {
+    "test": "jest"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/anirudhbs/ye.git"
@@ -8,6 +11,7 @@
   "author": "anirudhbs",
   "license": "MIT",
   "devDependencies": {
-    "eslint": "^5.9.0"
+    "eslint": "^5.9.0",
+    "jest": "^24.1.0"
   }
 }
