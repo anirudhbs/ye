@@ -24,6 +24,4 @@ function distance(str, word1, word2) {
   return minimumDistance;
 }
 
-console.log(
-  distance("dog cat hello cat dog dog hello cat world", "hello", "world")
-);
+module.exports = { distance };

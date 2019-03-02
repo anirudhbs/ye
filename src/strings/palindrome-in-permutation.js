@@ -18,8 +18,9 @@ function canFormPalindrome(str) {
   });
 
   return odd > 1 ? false : true;
+  // If more than one letter appears
+  // odd number of times
+  // palindrome cannot be formed
 }
-
-console.log(canFormPalindrome("rrcaeca")); // racecar
 
 module.exports = { canFormPalindrome };
