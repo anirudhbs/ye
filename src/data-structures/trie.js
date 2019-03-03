@@ -18,7 +18,7 @@ class Trie {
     if (input === "") {
       // no more letters
       node.setEnd();
-      return;
+      return true;
     }
     if (!node.keys.has(input[0])) {
       // letter not present
@@ -65,11 +65,4 @@ class Trie {
   }
 }
 
-const t = new Trie();
-t.insert("migos");
-t.insert("quavo");
-t.insert("meetup");
-t.insert("monitor");
-t.insert("mitch");
-console.log(t.words());
-console.log(t.autoComplete("mi"));
+module.exports = { Trie };

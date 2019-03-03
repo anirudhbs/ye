@@ -37,7 +37,8 @@ class LinkedList {
       this.head = node;
     } else {
       let i = 0;
-      let where = this.head; // find the node before where the new node should be inserted
+      let where = this.head;
+      // find the node before where the new node should be inserted
       while (i < index - 1) {
         where = where.next;
         i += 1;
@@ -149,22 +150,4 @@ class LinkedList {
   }
 }
 
-const n1 = new LinkedList();
-n1.insertAt(0, 1);
-n1.insertAt(0, 3);
-n1.insertAt(12, 8);
-n1.insertAt(2, 32);
-n1.add(-1);
-n1.add("x");
-n1.add(0);
-n1.add(54);
-n1.insertAt(2, 21);
-n1.add(12);
-n1.insertAt(3, 4);
-n1.remove(54);
-console.log(n1.items());
-n1.removeFrom(300);
-console.log(n1.items());
-n1.reverse();
-console.log(n1.items());
-console.log(n1.nthElementFromLast(4));
+module.exports = { LinkedList };
