@@ -23,4 +23,4 @@ function majority(arr) {
   return key;
 }
 
-console.log(majority([9, 2, 9, 9, 3, 4, 0, 0, 0, 0, 0]));
+module.exports = { majority };
