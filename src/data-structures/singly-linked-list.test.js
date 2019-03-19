@@ -84,4 +84,26 @@ describe("Singly Linked List", () => {
     // list is [ 'x', -1, 1, 3, 'offset', 'quavo', 'takeoff' ]
     expect(list.nthElementFromLast(4)).toEqual(3);
   });
+
+  it("should check for loop, return true", () => {
+    const list = new LinkedList();
+    list.insertAt(0, 1);
+    list.insertAt(12, 8);
+    list.add(-1);
+    list.add("x");
+    list.insertAt(0, 3);
+    list.insertAt(2, 32);
+    list.remove(32);
+
+    list.reverse();
+
+    list.add("offset");
+    list.add("quavo");
+    list.add("takeoff");
+    list.add("xy");
+    list.head.next.next.next.next.next.next.next = list.head;
+    // set 'xy' to point to 'x', therefore creating a loop
+    // list is [ 'x', -1, 1, 3, 'offset', 'quavo', 'takeoff', 'xy']
+    expect(list.detectLoop()).toEqual(true);
+  });
 });
