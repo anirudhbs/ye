@@ -1,4 +1,5 @@
 // https://algodaily.com/challenges/pick-a-sign
+
 function numSignWays(arr, target) {
   // args: (num array, target sum)
   // returns: number of permutations of
