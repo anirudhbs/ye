@@ -1,4 +1,4 @@
-const { distance } = require("./space-between-words");
+const { distance } = require("../src/problems/space-between-words");
 
 describe("Palindrome in permutation", () => {
   it("Should return 1", () => {

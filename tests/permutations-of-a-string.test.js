@@ -1,4 +1,4 @@
-const { permutationsOfAString } = require("./permutations-of-a-string");
+const { permutationsOfAString } = require("../src/strings/permutations-of-a-string");
 
 describe("Permutations of a string", () => {
   it("Should return an array with the original string", () => {

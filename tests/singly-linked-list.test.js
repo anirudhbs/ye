@@ -1,4 +1,4 @@
-const { LinkedList } = require("./singly-linked-list");
+const { LinkedList } = require("../src/data-structures/singly-linked-list");
 
 describe("Singly Linked List", () => {
   it("should create an empty linked list", () => {

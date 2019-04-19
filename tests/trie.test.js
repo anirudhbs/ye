@@ -1,4 +1,4 @@
-const { Trie } = require("./trie");
+const { Trie } = require("../src/data-structures/trie");
 
 describe("Trie", () => {
   it("Create a trie and insert values into it", () => {
