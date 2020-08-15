@@ -1,4 +1,4 @@
-const { canFormPalindrome } = require("../src/strings/palindrome-in-permutation");
+const { canFormPalindrome } = require("./palindrome-in-permutation");
 
 describe("Palindrome in permutation", () => {
   it("Should return true", () => {

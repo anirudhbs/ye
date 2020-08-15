@@ -1,4 +1,4 @@
-const { majority } = require("../src/problems/most-appearing-element");
+const { majority } = require("./most-appearing-element");
 
 describe("Most appearing element", () => {
   it("Should return 0", () => {
