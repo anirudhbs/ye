@@ -13,24 +13,27 @@ class BinarySearchTree {
 
   insert(value, node = this.root) {
     if (node === null) {
-      // no nodes in tree
       this.root = new Node(value);
-    } else if (node.value > value) {
-      // value less than parent node
+      return;
+    }
+
+    if (value < node.value) {
       if (node.left === null) {
-        // if left child is not present
         node.left = new Node(value);
-      } else {
-        this.insert(value, node.left);
+        return;
       }
-    } else if (node.value < value) {
-      // value more than parent node
+
+      this.insert(value, node.left);
+      return;
+    }
+
+    if (value > node.value) {
       if (node.right === null) {
-        // if right child is not present
         node.right = new Node(value);
-      } else {
-        this.insert(value, node.right);
+        return;
       }
+      this.insert(value, node.right);
+      return;
     }
   }
 
@@ -40,41 +43,45 @@ class BinarySearchTree {
 
   removeNode(node, value) {
     if (node === null) {
-      // no node
       return null;
     }
+
     if (node.value === value) {
       if (node.left === null && node.right === null) {
-        // no children
         node = null;
         return node;
-      } else if (node.left === null) {
-        // no left child
+      }
+
+      if (node.left === null) {
         node = node.right;
         return node;
-      } else if (node.right === null) {
-        // no right child
+      }
+
+      if (node.right === null) {
         node = node.left;
         return node;
-      } else {
-        const newNode = this.findMinNode(node.right);
-        node.value = newNode.value;
-        node.right = this.removeNode(node.right, newNode.value);
-        return node;
       }
-    } else if (value < node.value) {
+
+      const newNode = this.findMinNode(node.right);
+      node.value = newNode.value;
+      node.right = this.removeNode(node.right, newNode.value);
+      return node;
+    }
+
+    if (value < node.value) {
       node.left = this.removeNode(node.left, value);
     } else {
       node.right = this.removeNode(node.right, value);
     }
+
     return node;
   }
 
   findMinNode(node) {
-    // basically the left most node
     if (node.left === null) {
       return node;
     }
+
     return this.findMinNode(node.left);
   }
 

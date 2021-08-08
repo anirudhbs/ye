@@ -13,17 +13,25 @@ class PriorityQueue {
 
   insert(value, priority = 0) {
     const node = new Node(value, priority);
-    if (!this.first || this.first.priority < node.priority) {
+
+    if (!this.first) {
+      this.first = node;
+      return;
+    }
+
+    if (this.first.priority < node.priority) {
       node.next = this.first;
       this.first = node;
-    } else {
-      let pointer = this.first;
-      while (pointer.next && node.priority < pointer.next.priority) {
-        pointer = pointer.next;
-      }
-      node.next = pointer.next;
-      pointer.next = node;
+      return;
     }
+
+    let pointer = this.first;
+    while (pointer.next && node.priority < pointer.next.priority) {
+      pointer = pointer.next;
+    }
+
+    node.next = pointer.next;
+    pointer.next = node;
   }
 
   remove() {
